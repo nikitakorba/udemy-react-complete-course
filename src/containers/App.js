@@ -4,16 +4,26 @@ import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: "1", name: "Nikita", age: 23 },
-      { id: "12", name: "Alina", age: 23 },
-      { id: "123", name: "Oleh", age: 47 },
-      { id: "1234", name: "Olena", age: 43 }
-    ],
-    showPersons: false
-  };
+  constructor(props) {
+    super(props);
+    console.log("App.js Inside constructor", props);
+    this.state = {
+      persons: [
+        { id: "1", name: "Nikita", age: 23 },
+        { id: "12", name: "Alina", age: 23 },
+        { id: "123", name: "Oleh", age: 47 },
+        { id: "1234", name: "Olena", age: 43 }
+      ],
+      showPersons: false
+    };
+  }
 
+  componentWillMount() {
+    console.log("App.js Inside component will mount");
+  }
+  componentDidMount() {
+    console.log("App.js Component Did Mount");
+  }
   deletePersonHandler = personIndex => {
     // const persons = this.state.persons.slice();
     const persons = [...this.state.persons];
@@ -38,6 +48,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("App.js RENDER");
     let persons = null;
     if (this.state.showPersons) {
       persons = (
@@ -51,6 +62,7 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <Cockpit
+          appTitle={this.props.title}
           showPersons={this.state.showPersons}
           persons={this.state.persons}
           clicked={this.togglePersonsHandler}
