@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import classes from "./Person.css";
-import WithClass from "../../../hoc/WithClass";
+import WithClass from "../../../HigherOrderComponents/WithClass";
 
 class Person extends Component {
   constructor(props) {

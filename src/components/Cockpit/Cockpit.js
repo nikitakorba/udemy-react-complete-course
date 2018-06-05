@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Cockpit.css";
-import Aux from "../../hoc/Aux";
+import Wrapper from "../../HigherOrderComponents/Wrapper";
 
 const cockpit = props => {
   const assignedClasses = [];
@@ -15,13 +15,13 @@ const cockpit = props => {
     assignedClasses.push(classes.bold);
   }
   return (
-    <Aux>
+    <Wrapper>
       <h1>{props.appTitle}</h1>
       <p className={assignedClasses.join(" ")}>This is really working</p>
       <button className={btnClass} onClick={props.clicked}>
         Toggle persons
       </button>
-    </Aux>
+    </Wrapper>
   );
 };
 
